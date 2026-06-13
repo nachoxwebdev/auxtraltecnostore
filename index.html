@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUXTRAL TECNO STORE | Tecnología Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header__container">
+        <div class="logo">
+            <span class="logo__main">AUXTRAL</span>
+            <span class="logo__sub">TECNOSTORE</span>
+        </div>
+        <nav class="nav">
+            <a href="#hero" class="nav__link active">Inicio</a>
+            <a href="#productos" class="nav__link">Productos</a>
+            <a href="#destacados" class="nav__link">Destacados</a>
+            <a href="#contacto" class="nav__link">Contacto</a>
+        </nav>
+        <div class="header__actions">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button id="cartToggle" class="cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span id="cartCount">0</span>
+            </button>
+            <button id="menuToggle" class="menu-toggle">☰</button>
+        </div>
+    </div>
+</header>
+
+<!-- BANNER PROMOCIONAL CON IMAGEN REAL -->
+<div class="promo-banner" id="promoBanner">
+    <img src="imagenes/banner.png" alt="Oferta especial" class="promo-banner__img">
+    <div class="promo-banner__overlay"></div>
+    <div class="promo-banner__content">
+        <div class="promo-banner__text">
+            <span class="promo-banner__badge">⚡ OFERTA ESPECIAL</span>
+            <h2>Tecnología premium al mejor precio</h2>
+            <p>Envío gratis en compras superiores a $50.000</p>
+            <a href="#productos" class="btn btn--primary">Comprar ahora</a>
+        </div>
+    </div>
+    <button class="promo-banner__close" id="closeBannerBtn">✕</button>
+</div>
+
+<main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero__container">
+            <span class="hero__badge">⚡ Tecnología Premium</span>
+            <h1>Descubrí el futuro <span class="accent">en tus manos</span></h1>
+            <p>Los mejores productos, envíos rápidos y atención personalizada.</p>
+            <div class="hero__buttons">
+                <a href="#productos" class="btn btn--primary">Ver Productos</a>
+                <a href="#destacados" class="btn btn--outline">Destacados</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS -->
+    <section class="featured-products" id="destacados">
+        <div class="container">
+            <div class="section-title">
+                <span>✨ Lo más vendido</span>
+                <h2>Productos <span class="accent">Destacados</span></h2>
+            </div>
+            <div class="featured-grid" id="featuredGrid"></div>
+        </div>
+    </section>
+
+    <!-- TODOS LOS PRODUCTOS -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="section-title">
+                <span>🛍️ Catálogo completo</span>
+                <h2>Todos los <span class="accent">Productos</span></h2>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="audio">🎧 Audio</button>
+                <button class="filter-btn" data-filter="accesorios">🔌 Accesorios</button>
+                <button class="filter-btn" data-filter="gaming">🎮 Gaming</button>
+                <button class="filter-btn" data-filter="vape">💨 Vape</button>
+                <select id="sortSelect">
+                    <option value="default">Ordenar por</option>
+                    <option value="price-asc">Precio: menor</option>
+                    <option value="price-desc">Precio: mayor</option>
+                    <option value="name-asc">Nombre A-Z</option>
+                </select>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+            <div id="emptyMessage" class="empty-message" style="display:none;">No hay productos</div>
+        </div>
+    </section>
+
+    <!-- VENTAJAS -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature"><i class="fa-solid fa-truck-fast"></i><h3>Envíos rápidos</h3><p>24hs</p></div>
+                <div class="feature"><i class="fa-solid fa-shield-halved"></i><h3>Garantía</h3><p>Original</p></div>
+                <div class="feature"><i class="fa-solid fa-credit-card"></i><h3>Múltiples pagos</h3><p>Transferencia, tarjetas</p></div>
+                <div class="feature"><i class="fa-solid fa-headset"></i><h3>Soporte 24/7</h3><p>WhatsApp</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+        <div class="contact-card">
+            <h2>¿Consultas?</h2>
+            <a href="https://wa.me/5491112345678" target="_blank" class="btn btn--whatsapp">WhatsApp</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__logo">
+            <span>AUXTRAL</span>
+            <span>TECNOSTORE</span>
+        </div>
+        <p>© 2026 - Todos los derechos reservados</p>
+    </div>
+</footer>
+
+<!-- MODAL PRODUCTO -->
+<div id="productModal" class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__container">
+        <button class="modal__close">&times;</button>
+        <div id="modalContent" class="modal__content"></div>
+    </div>
+</div>
+
+<!-- CARRITO LATERAL -->
+<div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+        <h3>Carrito <span id="cartDrawerCount">(0)</span></h3>
+        <button id="closeCart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+        <select id="paymentMethod">
+            <option value="transferencia">Transferencia</option>
+            <option value="credito">Crédito (+10%)</option>
+        </select>
+        <div class="cart-total">Total: <span id="cartTotal">$0</span></div>
+        <button id="checkoutBtn" class="btn btn--primary">Finalizar</button>
+        <button id="clearCartBtn" class="btn btn--outline">Vaciar</button>
+    </div>
+</div>
+<div id="cartOverlay" class="cart-overlay"></div>
+
+<div id="toastContainer" class="toast-container"></div>
+<a href="https://wa.me/5491112345678" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script src="script.js"></script>
+</body>
+</html>
