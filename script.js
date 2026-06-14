@@ -185,6 +185,7 @@
         }
     }
 
+    // Modal corregido para móvil
     function openModal(pid) {
         let p = products.find(p => p.id === pid);
         if (!p) return;
@@ -192,16 +193,16 @@
         let imgHtml = p.image ? `<img src="${p.image}" onerror="this.src='https://placehold.co/500x400?text=No'">` : '<div style="font-size:4rem;">📦</div>';
         let avail = getAvailableStock(pid);
         $('#modalContent').innerHTML = `
-            <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-                <div style="flex:1; min-width:250px; background:#161625; border-radius:24px; display:flex; align-items:center; justify-content:center; padding:1rem;">${imgHtml}</div>
-                <div style="flex:1; display:flex; flex-direction:column; gap:1rem;">
-                    <h2 style="font-size:1.8rem;">${p.name}</h2>
-                    <div style="font-size:1.8rem; font-weight:800; background:linear-gradient(135deg,#00d4ff,#7c5cfc); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">${formatPrice(p.price,p.currency)}</div>
+            <div class="modal-product">
+                <div class="modal-product__gallery">${imgHtml}</div>
+                <div class="modal-product__info">
+                    <h2 class="modal-product__title">${p.name}</h2>
+                    <div class="modal-product__price">${formatPrice(p.price,p.currency)}</div>
                     ${flavor}
-                    <p style="color:#b0b0c0;">${p.desc || 'Producto original de alta calidad.'}</p>
-                    <div style="display:flex; gap:1rem; align-items:center;">
+                    <p>${p.desc || 'Producto original de alta calidad.'}</p>
+                    <div class="modal-product__quantity">
                         <input type="number" id="modalQty" value="1" min="1" max="${avail}" style="width:80px; padding:10px; border-radius:16px; background:#161625; border:1px solid #252538; color:white; text-align:center;">
-                        <button id="modalAddBtn" class="btn btn--primary" ${avail===0 ? 'disabled' : ''}>Agregar al carrito</button>
+                        <button id="modalAddBtn" class="modal-add-btn" ${avail===0 ? 'disabled' : ''}>Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -234,7 +235,7 @@
         setTimeout(() => toast.remove(), 2500);
     }
 
-    // Función para manejar el menú móvil
+    // Menú móvil
     function initMobileMenu() {
         const menuToggle = $('#menuToggle');
         const mobileMenu = $('#mobileMenu');
@@ -259,7 +260,6 @@
         mobileMenuOverlay.addEventListener('click', closeMenu);
         closeMenuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-        // Cerrar con tecla ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu--open')) {
                 closeMenu();
@@ -267,7 +267,7 @@
         });
     }
 
-    // Sincronizar búsqueda entre desktop y móvil
+    // Búsqueda móvil sincronizada
     function initMobileSearch() {
         const searchInputDesktop = $('#searchInput');
         const mobileSearchInput = $('#mobileSearchInput');
