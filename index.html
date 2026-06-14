@@ -33,6 +33,27 @@
     </div>
 </header>
 
+<!-- Menú móvil (inicialmente oculto) -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu__panel">
+        <div class="mobile-menu__header">
+            <span class="mobile-menu__title">Menú</span>
+            <button class="mobile-menu__close" id="mobileMenuClose">✕</button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li><a href="#hero" class="mobile-menu__link" data-close-menu>Inicio</a></li>
+            <li><a href="#productos" class="mobile-menu__link" data-close-menu>Productos</a></li>
+            <li><a href="#destacados" class="mobile-menu__link" data-close-menu>Destacados</a></li>
+            <li><a href="#contacto" class="mobile-menu__link" data-close-menu>Contacto</a></li>
+        </ul>
+        <div class="mobile-menu__search">
+            <input type="text" id="mobileSearchInput" placeholder="Buscar productos...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+</div>
+
 <div class="promo-banner">
     <img src="imagenes/banner.png" alt="Banner promocional" class="promo-banner__img">
 </div>

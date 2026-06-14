@@ -234,6 +234,57 @@
         setTimeout(() => toast.remove(), 2500);
     }
 
+    // Función para manejar el menú móvil
+    function initMobileMenu() {
+        const menuToggle = $('#menuToggle');
+        const mobileMenu = $('#mobileMenu');
+        const mobileMenuClose = $('#mobileMenuClose');
+        const mobileMenuOverlay = $('#mobileMenuOverlay');
+        const closeMenuLinks = $$('[data-close-menu]');
+
+        if (!menuToggle || !mobileMenu) return;
+
+        function openMenu() {
+            mobileMenu.classList.add('mobile-menu--open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('mobile-menu--open');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        mobileMenuClose.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+        closeMenuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Cerrar con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu--open')) {
+                closeMenu();
+            }
+        });
+    }
+
+    // Sincronizar búsqueda entre desktop y móvil
+    function initMobileSearch() {
+        const searchInputDesktop = $('#searchInput');
+        const mobileSearchInput = $('#mobileSearchInput');
+        if (mobileSearchInput && searchInputDesktop) {
+            mobileSearchInput.addEventListener('input', (e) => {
+                searchInputDesktop.value = e.target.value;
+                currentSearch = e.target.value;
+                renderProducts();
+            });
+            searchInputDesktop.addEventListener('input', (e) => {
+                if (mobileSearchInput) mobileSearchInput.value = e.target.value;
+                currentSearch = e.target.value;
+                renderProducts();
+            });
+        }
+    }
+
     function bindEvents() {
         $('#cartToggle').onclick = () => { $('#cartDrawer').classList.add('open'); $('#cartOverlay').classList.add('visible'); };
         $('#closeCart').onclick = () => { $('#cartDrawer').classList.remove('open'); $('#cartOverlay').classList.remove('visible'); };
@@ -245,7 +296,6 @@
             let msg = encodeURIComponent(`Hola, quiero comprar:\n${cart.map(i => `- ${i.name} x${i.qty}: ${formatPrice(i.price,i.currency)}`).join('\n')}\nTotal: ${formatPrice(total,'ARS')}`);
             window.open(`https://wa.me/5493364248871?text=${msg}`, '_blank');
         };
-        $('#searchInput').addEventListener('input', e => { currentSearch = e.target.value; renderProducts(); });
         $$('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
             $$('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -263,4 +313,6 @@
     renderProducts();
     updateCartUI();
     bindEvents();
+    initMobileMenu();
+    initMobileSearch();
 })();
