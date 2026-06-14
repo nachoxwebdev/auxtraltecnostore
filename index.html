@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>AUXTRAL TECNO STORE | Tecnología Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -33,23 +33,11 @@
     </div>
 </header>
 
-<!-- BANNER PROMOCIONAL CON IMAGEN REAL -->
-<div class="promo-banner" id="promoBanner">
-    <img src="imagenes/banner.png" alt="Oferta especial" class="promo-banner__img">
-    <div class="promo-banner__overlay"></div>
-    <div class="promo-banner__content">
-        <div class="promo-banner__text">
-            <span class="promo-banner__badge">⚡ OFERTA ESPECIAL</span>
-            <h2>Tecnología premium al mejor precio</h2>
-            <p>Envío gratis en compras superiores a $50.000</p>
-            <a href="#productos" class="btn btn--primary">Comprar ahora</a>
-        </div>
-    </div>
-    <button class="promo-banner__close" id="closeBannerBtn">✕</button>
+<div class="promo-banner">
+    <img src="imagenes/banner.png" alt="Banner promocional" class="promo-banner__img">
 </div>
 
 <main>
-    <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero__container">
             <span class="hero__badge">⚡ Tecnología Premium</span>
@@ -62,23 +50,21 @@
         </div>
     </section>
 
-    <!-- PRODUCTOS DESTACADOS -->
     <section class="featured-products" id="destacados">
         <div class="container">
             <div class="section-title">
-                <span>✨ Lo más vendido</span>
-                <h2>Productos <span class="accent">Destacados</span></h2>
+                <span class="section-tag">✨ Lo más vendido</span>
+                <h2>Productos <span class="accent-text">Destacados</span></h2>
             </div>
             <div class="featured-grid" id="featuredGrid"></div>
         </div>
     </section>
 
-    <!-- TODOS LOS PRODUCTOS -->
     <section class="products" id="productos">
         <div class="container">
             <div class="section-title">
-                <span>🛍️ Catálogo completo</span>
-                <h2>Todos los <span class="accent">Productos</span></h2>
+                <span class="section-tag">🛍️ Catálogo completo</span>
+                <h2>Todos los <span class="accent-text">Productos</span></h2>
             </div>
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
@@ -98,7 +84,6 @@
         </div>
     </section>
 
-    <!-- VENTAJAS -->
     <section class="features">
         <div class="container">
             <div class="features-grid">
@@ -110,11 +95,10 @@
         </div>
     </section>
 
-    <!-- CONTACTO -->
     <section class="contact" id="contacto">
         <div class="contact-card">
             <h2>¿Consultas?</h2>
-            <a href="https://wa.me/5491112345678" target="_blank" class="btn btn--whatsapp">WhatsApp</a>
+            <a href="https://wa.me/5493364248871" target="_blank" class="btn btn--whatsapp">WhatsApp</a>
         </div>
     </section>
 </main>
@@ -129,7 +113,6 @@
     </div>
 </footer>
 
-<!-- MODAL PRODUCTO -->
 <div id="productModal" class="modal">
     <div class="modal__overlay"></div>
     <div class="modal__container">
@@ -138,27 +121,34 @@
     </div>
 </div>
 
-<!-- CARRITO LATERAL -->
 <div id="cartDrawer" class="cart-drawer">
-    <div class="cart-header">
-        <h3>Carrito <span id="cartDrawerCount">(0)</span></h3>
-        <button id="closeCart">✕</button>
+    <div class="cart-drawer__header">
+        <h3>Mi Carrito <span id="cartDrawerCount">(0)</span></h3>
+        <button id="closeCart" class="cart-drawer__close">✕</button>
     </div>
-    <div id="cartItems" class="cart-items"></div>
-    <div class="cart-footer" id="cartFooter" style="display:none;">
-        <select id="paymentMethod">
-            <option value="transferencia">Transferencia</option>
-            <option value="credito">Crédito (+10%)</option>
-        </select>
-        <div class="cart-total">Total: <span id="cartTotal">$0</span></div>
-        <button id="checkoutBtn" class="btn btn--primary">Finalizar</button>
-        <button id="clearCartBtn" class="btn btn--outline">Vaciar</button>
+    <div class="cart-drawer__body" id="cartItems">
+        <div class="cart-empty">Carrito vacío</div>
+    </div>
+    <div class="cart-drawer__footer" id="cartFooter" style="display:none;">
+        <div class="cart-payment">
+            <label for="paymentMethod">Método de pago</label>
+            <select id="paymentMethod">
+                <option value="transferencia">Transferencia / Depósito</option>
+                <option value="credito">Tarjeta de Crédito (+10%)</option>
+            </select>
+        </div>
+        <div class="cart-total-row">
+            <span>Total</span>
+            <strong id="cartTotal">$0</strong>
+        </div>
+        <button id="checkoutBtn" class="btn btn--primary btn--full">Finalizar compra</button>
+        <button id="clearCartBtn" class="btn btn--outline btn--full">Vaciar carrito</button>
     </div>
 </div>
 <div id="cartOverlay" class="cart-overlay"></div>
 
 <div id="toastContainer" class="toast-container"></div>
-<a href="https://wa.me/5491112345678" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://wa.me/5493364248871" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
 <script src="script.js"></script>
 </body>
