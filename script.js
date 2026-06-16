@@ -1,8 +1,8 @@
 (function() {
     const products = [
-        { id:1, name:'Battery Pack MagSafe', price:20000, currency:'ARS', category:'accesorios', image:'imagenes/bpack.png', stock:8, desc:'Batería externa original Apple', featured: false },
-        { id:2, name:'AirPods Pro 2 AAA+', price:29000, currency:'ARS', category:'audio', image:'imagenes/airpods2.png', stock:5, desc:'Cancelación activa de ruido y audio espacial', featured: true },
-        { id:3, name:'Combo Cargador + Cable Lightning', price:13000, currency:'ARS', category:'accesorios', image:'imagenes/carga.png', stock:10, desc:'Cargador 20W USB-C + cable original', featured: false },
+        { id:1, name:'Battery Pack MagSafe', price:21000, currency:'ARS', category:'accesorios', image:'imagenes/bpack.png', stock:8, desc:'Batería externa original Apple', featured: false },
+        { id:2, name:'AirPods Pro 2 AAA+', price:32000, currency:'ARS', category:'audio', image:'imagenes/airpods2.png', stock:5, desc:'Cancelación activa de ruido y audio espacial', featured: true },
+        { id:3, name:'Combo Cargador + Cable Lightning', price:14000, currency:'ARS', category:'accesorios', image:'imagenes/carga.png', stock:10, desc:'Cargador 20W USB-C + cable original', featured: false },
         { id:4, name:'Vaper Supreme 18.000 puffs', price:25000, currency:'ARS', category:'vape', image:'imagenes/vap-sup.png', stock:15, flavor:'🍇 Uva', desc:'Vaper descartable 18k caladas, sabor uva', featured: true },
         { id:5, name:'Pack 2 Vaper Supreme', price:45000, currency:'ARS', category:'vape', image:'imagenes/vap-sup2.jpg', stock:8, flavor:'🍇 Uva (pack ahorro)', desc:'2 unidades del Vaper Supreme 18k puffs', featured: true },
         { id:6, name:'PS5 Digital Edition', price:670, currency:'USD', category:'gaming', image:'imagenes/ps5.webp', stock:3, desc:'Consola PlayStation 5 Digital Edition', featured: true },
