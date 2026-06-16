@@ -1,7 +1,7 @@
 (function() {
     const products = [
-        { id:1, name:'Battery Pack MagSafe Apple', price:20000, currency:'ARS', category:'accesorios', image:'imagenes/bpack.png', stock:8, desc:'Batería externa original Apple', featured: false },
-        { id:2, name:'AirPods Pro 2', price:29000, currency:'ARS', category:'audio', image:'imagenes/airpods2.png', stock:5, desc:'Cancelación activa de ruido y audio espacial', featured: true },
+        { id:1, name:'Battery Pack MagSafe', price:20000, currency:'ARS', category:'accesorios', image:'imagenes/bpack.png', stock:8, desc:'Batería externa original Apple', featured: false },
+        { id:2, name:'AirPods Pro 2 AAA+', price:29000, currency:'ARS', category:'audio', image:'imagenes/airpods2.png', stock:5, desc:'Cancelación activa de ruido y audio espacial', featured: true },
         { id:3, name:'Combo Cargador + Cable Lightning', price:13000, currency:'ARS', category:'accesorios', image:'imagenes/carga.png', stock:10, desc:'Cargador 20W USB-C + cable original', featured: false },
         { id:4, name:'Vaper Supreme 18.000 puffs', price:25000, currency:'ARS', category:'vape', image:'imagenes/vap-sup.png', stock:15, flavor:'🍇 Uva', desc:'Vaper descartable 18k caladas, sabor uva', featured: true },
         { id:5, name:'Pack 2 Vaper Supreme', price:45000, currency:'ARS', category:'vape', image:'imagenes/vap-sup2.jpg', stock:8, flavor:'🍇 Uva (pack ahorro)', desc:'2 unidades del Vaper Supreme 18k puffs', featured: true },
@@ -185,7 +185,6 @@
         }
     }
 
-    // Modal corregido para móvil
     function openModal(pid) {
         let p = products.find(p => p.id === pid);
         if (!p) return;
@@ -202,7 +201,7 @@
                     <p>${p.desc || 'Producto original de alta calidad.'}</p>
                     <div class="modal-product__quantity">
                         <input type="number" id="modalQty" value="1" min="1" max="${avail}" style="width:80px; padding:10px; border-radius:16px; background:#161625; border:1px solid #252538; color:white; text-align:center;">
-                        <button id="modalAddBtn" class="modal-add-btn" ${avail===0 ? 'disabled' : ''}>Agregar al carrito</button>
+                        <button id="modalAddBtn" class="btn btn--primary modal-add-btn" ${avail===0 ? 'disabled' : ''}>Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -235,7 +234,6 @@
         setTimeout(() => toast.remove(), 2500);
     }
 
-    // Menú móvil
     function initMobileMenu() {
         const menuToggle = $('#menuToggle');
         const mobileMenu = $('#mobileMenu');
@@ -267,7 +265,6 @@
         });
     }
 
-    // Búsqueda móvil sincronizada
     function initMobileSearch() {
         const searchInputDesktop = $('#searchInput');
         const mobileSearchInput = $('#mobileSearchInput');

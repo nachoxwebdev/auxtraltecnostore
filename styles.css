@@ -16,7 +16,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ========== TÍTULOS ========== */
 .accent-text {
     color: #00d4ff;
     background: linear-gradient(135deg, #00d4ff, #7c5cfc);
@@ -43,7 +42,6 @@ body {
     border: 1px solid rgba(0, 212, 255, 0.3);
 }
 
-/* HEADER */
 .header {
     position: fixed;
     top: 0;
@@ -579,7 +577,7 @@ body {
     border-top: 1px solid rgba(37, 37, 56, 0.5);
 }
 
-/* MODAL - VERSIÓN CORREGIDA (móvil y PC) */
+/* MODAL RESPONSIVO */
 .modal {
     display: none;
     position: fixed;
@@ -631,12 +629,6 @@ body {
     color: white;
     margin-bottom: 0.5rem;
     z-index: 2;
-    transition: 0.2s;
-}
-
-.modal__close:hover {
-    border-color: #00d4ff;
-    transform: rotate(90deg);
 }
 
 .modal-product {
@@ -687,30 +679,6 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.modal-product__quantity {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-}
-
-.modal-add-btn {
-    background: linear-gradient(135deg, #00d4ff, #7c5cfc);
-    color: black;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.modal-add-btn:hover {
-    transform: scale(1.02);
-}
-
-/* RESPONSIVE MÓVIL PARA MODAL */
 @media (max-width: 768px) {
     .modal__container {
         width: 92%;
@@ -725,7 +693,6 @@ body {
     .modal-product__gallery {
         min-width: auto;
         padding: 0.5rem;
-        margin: 0;
     }
     .modal-product__gallery img {
         max-height: 35vh;
@@ -734,12 +701,10 @@ body {
     }
     .modal-product__info {
         gap: 0.8rem;
-        text-align: left;
         padding: 0 0.5rem 0.5rem 0.5rem;
     }
     .modal-product__title {
         font-size: 1.4rem;
-        margin-top: 0.2rem;
     }
     .modal-product__price {
         font-size: 1.4rem;
@@ -747,6 +712,13 @@ body {
     .modal-product__info p {
         font-size: 0.85rem;
         line-height: 1.4;
+    }
+    .modal-product__quantity {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        align-items: center;
+        margin-top: 0.5rem;
     }
     #modalQty {
         width: 70px;
@@ -806,11 +778,6 @@ body {
     font-size: 1.4rem;
     cursor: pointer;
     color: #b0b0c0;
-    transition: 0.2s;
-}
-
-.cart-drawer__close:hover {
-    color: #00d4ff;
 }
 
 .cart-drawer__body {
@@ -879,12 +846,6 @@ body {
     height: 28px;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.cart-item__qty-btn:hover {
-    background: #00d4ff;
-    color: black;
 }
 
 .cart-item__remove {
@@ -892,7 +853,6 @@ body {
     border: none;
     color: #e74c3c;
     cursor: pointer;
-    font-size: 1.1rem;
 }
 
 .cart-drawer__footer {
@@ -904,13 +864,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.cart-payment label {
-    font-size: 0.8rem;
-    color: #b0b0c0;
-    margin-bottom: 0.3rem;
-    display: block;
-}
-
 .cart-payment select {
     width: 100%;
     padding: 0.7rem;
@@ -918,22 +871,14 @@ body {
     border: 1px solid rgba(37, 37, 56, 0.8);
     border-radius: 16px;
     color: white;
-    cursor: pointer;
 }
 
 .cart-total-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 1rem 0;
     padding-top: 0.5rem;
     border-top: 1px dashed rgba(37, 37, 56, 0.5);
-    font-size: 1.1rem;
-}
-
-.cart-total-row strong {
-    font-size: 1.3rem;
-    color: #00d4ff;
 }
 
 .cart-overlay {
@@ -964,7 +909,6 @@ body {
     padding: 0.8rem 1.5rem;
     border-radius: 60px;
     margin-top: 0.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.3s, fadeOut 0.3s 2.7s forwards;
 }
 
@@ -991,7 +935,6 @@ body {
     color: white;
     z-index: 900;
     transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
 }
 
 .whatsapp-float:hover {
